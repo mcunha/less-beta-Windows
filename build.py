@@ -44,7 +44,7 @@ def extract_archive(archive: str) -> str:
     """
 
     # given "less-561.zip", return "less-561
-    zip_dest = os.path.splitext(archive)[0]
+    zip_dest = os.path.splitext(archive)[0].replace("-beta", "")
 
     if os.path.exists(zip_dest):
         print("Removing preexisting directory: %s" % (zip_dest))
