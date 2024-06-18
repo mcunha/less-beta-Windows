@@ -14,8 +14,7 @@ import re
 import sys
 from shared import download_less_web_page, get_latest_version_url, LESSURL, NEWFILE
 
-LOCALURL = "https://api.github.com/repos/jftuga/less-Windows/releases"
-
+LOCALURL = "https://api.github.com/repos/mcunha/less-beta-Windows/releases"
 
 def download_local_web_page() -> str:
     """Download and return JSON from LOCALURL
@@ -72,7 +71,7 @@ def main():
         sys.exit(30)
         return
 
-    remote_version, _ = get_latest_version_url(page)
+    remote_version, _ = get_latest_beta_version_url(page)
     if remote_version is None:
         print("Unable to extract version from: %s" % (LESSURL), file=sys.stderr)
         sys.exit(40)
