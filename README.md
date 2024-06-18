@@ -14,9 +14,7 @@ Binaries for `less.exe` (and `lesskey.exe`) are provided on the [jftuga's/less-W
 
 ### Scoop
 
-*** WORK IN PROGRESS - NOT YET WORKING ***
-
-#[less-beta](https://scoop.sh/#/apps?q=versions%2Fless-beta&s=0&d=1&o=true) is available in the Versions bucket:
+[less-beta](https://scoop.sh/#/apps?q=versions%2Fless-beta&s=0&d=1&o=true) is available in the Versions bucket:
 ```powershell
 scoop install less-beta
 ```
