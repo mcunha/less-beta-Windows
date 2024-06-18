@@ -76,7 +76,7 @@ jobs:
       with:
         route: GET /repos/{owner}/{repo}/actions/runs/{run_id}
         owner: ${{ github.repository_owner }}
-        repo: less-Windows
+        repo: less-beta-Windows
         run_id: ${{ github.run_id }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -96,17 +96,3 @@ jobs:
         discussion_category_name: Announcements
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  winget:
-    name: Publish to WinGet
-    needs: [checkver, release]
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: vedantmgoyal2009/winget-releaser@v2
-      with:
-        identifier: jftuga.less
-        version: ${{ needs.checkver.outputs.new_version }}
-        release-tag: less-v${{ needs.checkver.outputs.new_version }}
-        installers-regex: '\.zip$'
-        token: ${{ secrets.WINGET_TOKEN }}
