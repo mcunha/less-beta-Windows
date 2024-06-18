@@ -87,7 +87,7 @@ def main():
         sys.exit(10)
         return
 
-    version, url = get_latest_version_url(page)
+    version, url = get_latest_beta_version_url(page)
     if version is None:
         print("Unable to extract version from: %s" % (LESSURL), file=sys.stderr)
         sys.exit(20)

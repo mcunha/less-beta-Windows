@@ -40,8 +40,8 @@ def download_less_web_page() -> str:
     return page
 
 
-def get_latest_version_url(page: str) -> tuple:
-    """Return the URL for the "RECOMMENDED version"
+def get_latest_beta_version_url(page: str) -> tuple:
+    """Return the URL for the "BETA version"
 
     Args:
         page: an HTML web page, provided in LESSURL
