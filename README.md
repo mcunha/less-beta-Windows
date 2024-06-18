@@ -9,9 +9,12 @@ Binaries for `less.exe` (and `lesskey.exe`) are provided on the [Releases Page](
 
 Beta
 
+*** WORK IN PROGRESS - NOT YET WORKING ***
 # If you prefer to install less via a package manager, you can choose one of the following options:
 
 ### Scoop
+
+*** WORK IN PROGRESS - NOT YET WORKING ***
 
 #[less-beta](https://scoop.sh/#/apps?q=versions%2Fless-beta&s=0&d=1&o=true) is available in the Versions bucket:
 ```powershell
