@@ -12,7 +12,7 @@ import json
 import urllib.request
 import re
 import sys
-from shared import download_less_web_page, get_latest_version_url, LESSURL, NEWFILE
+from shared import download_less_web_page, get_latest_beta_version_url, LESSURL, NEWFILE
 
 LOCALURL = "https://api.github.com/repos/mcunha/less-beta-Windows/releases"
 

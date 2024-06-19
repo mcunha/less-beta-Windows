@@ -17,7 +17,7 @@ import sys
 import time
 import urllib.request
 import zipfile
-from shared import download_less_web_page, get_latest_version_url, LESSURL
+from shared import download_less_web_page, get_latest_beta_version_url, LESSURL
 
 
 def download_and_save(url: str) -> bool:
