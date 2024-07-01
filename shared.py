@@ -13,7 +13,8 @@ import time
 import urllib.request
 
 LESSURL = "http://greenwoodsoftware.com/less/download.html"
-version_url_re = re.compile(r"""Download <strong>BETA</strong> version (.*?) """, re.M | re.S | re.I)
+version_beta_url_re = re.compile(r"""Download <strong>BETA</strong> version (.*?) """, re.M | re.S | re.I)
+version_recommended_url_re = re.compile(r"""Download <strong>RECOMMENDED</strong> version (.*?) """, re.M | re.S | re.I)
 NEWFILE = "new.txt"
 
 
@@ -40,6 +41,27 @@ def download_less_web_page() -> str:
     return page
 
 
+def get_latest_recommended_version_url(page: str) -> tuple:
+    """Return the URL for the "RECOMMENDED version"
+
+    Args:
+        page: an HTML web page, provided in LESSURL
+
+    Returns:
+        A tuple containing: (version number, zip archive URL)
+        Ex: 551, http://greenwoodsoftware.com/less/less-551.zip
+    """
+
+    match = version_recommended_url_re.findall(page)
+    if not len(match):
+        return (None, None)
+
+    version = match[0]
+    archive = "less-%s.zip" % version
+    url = LESSURL.replace("download.html", archive)
+    return version, url
+
+
 def get_latest_beta_version_url(page: str) -> tuple:
     """Return the URL for the "BETA version"
 
@@ -51,7 +73,7 @@ def get_latest_beta_version_url(page: str) -> tuple:
         Ex: 551, http://greenwoodsoftware.com/less/less-551.zip
     """
 
-    match = version_url_re.findall(page)
+    match = version_beta_url_re.findall(page)
     if not len(match):
         return (None, None)
 
