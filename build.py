@@ -17,7 +17,7 @@ import sys
 import time
 import urllib.request
 import zipfile
-from shared import download_less_web_page, get_latest_beta_version_url, LESSURL
+from shared import download_less_web_page, get_latest_recommended_version_url, get_latest_beta_version_url, LESSURL
 
 
 def download_and_save(url: str) -> bool:
@@ -89,8 +89,10 @@ def main():
 
     version, url = get_latest_beta_version_url(page)
     if version is None:
-        print("Unable to extract version from: %s" % (LESSURL), file=sys.stderr)
-        sys.exit(20)
+        version, url = get_latest_recommended_version_url(page)
+        if version is None:
+            print("Unable to extract version from: %s" % (LESSURL), file=sys.stderr)
+            sys.exit(20)
 
     if not (archive := download_and_save(url)):
         print("Unable to download file: %s" % (url), file=sys.stderr)
