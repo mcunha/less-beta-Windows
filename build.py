@@ -89,6 +89,7 @@ def main():
 
     version, url = get_latest_beta_version_url(page)
     if version is None:
+        print(f"No Beta was found, trying recommended versions")
         version, url = get_latest_recommended_version_url(page)
         if version is None:
             print("Unable to extract version from: %s" % (LESSURL), file=sys.stderr)
