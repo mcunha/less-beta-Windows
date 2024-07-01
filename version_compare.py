@@ -73,6 +73,7 @@ def main():
 
     remote_version, _ = get_latest_beta_version_url(page)
     if remote_version is None:
+        print(f"No Beta was found, trying recommended versions")
         remote_version, _ = get_latest_recommended_version_url(page)
         if remote_version is None:
             print("Unable to extract version from: %s" % (LESSURL), file=sys.stderr)
